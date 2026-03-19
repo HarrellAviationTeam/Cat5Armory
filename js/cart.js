@@ -1,6 +1,6 @@
 /**
- * Cat-5 Armory - Inquiry Cart
- * Manages the inquiry list (cart) stored in localStorage.
+ * Cat-5 Armory - Cart
+ * Manages the cart stored in localStorage.
  * Items in this cart are used to generate quote requests to Cat-5 Armory.
  */
 
@@ -87,7 +87,7 @@ const Cart = (() => {
     if (items.length === 0) {
       listEl.innerHTML = `
         <div class="cart-empty-msg">
-          <p>Your inquiry list is empty.</p>
+          <p>Your cart is empty.</p>
           <p style="margin-top:8px;font-size:.8rem">Add items to request a quote from Cat-5 Armory.</p>
           <a href="shop.html" class="btn btn-outline btn-sm" style="margin-top:14px" onclick="toggleCart()">Browse Products</a>
         </div>`;
@@ -134,7 +134,7 @@ const Cart = (() => {
     const toast = document.createElement('div');
     toast.id = 'addToast';
     toast.style.cssText = 'position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#1a1a1a;color:#fff;padding:12px 20px;border-radius:4px;z-index:3000;font-size:.88rem;box-shadow:0 4px 20px rgba(0,0,0,.3);border-left:4px solid #c41e3a;max-width:360px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;';
-    toast.textContent = '✓ Added to inquiry: ' + name.slice(0, 50);
+    toast.textContent = '✓ Added to cart: ' + name.slice(0, 50);
     document.body.appendChild(toast);
     setTimeout(() => toast.remove(), 3000);
   }

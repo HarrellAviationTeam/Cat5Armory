@@ -67,7 +67,7 @@
 <div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
 <div class="cart-sidebar" id="cartSidebar">
   <div class="cart-header">
-    <h3>Inquiry List</h3>
+    <h3>Cart</h3>
     <button class="cart-close" onclick="toggleCart()">&#x2715;</button>
   </div>
   <div class="cart-items-list" id="cartItemsEl"></div>
@@ -107,9 +107,9 @@
       <div class="search-suggestions" id="searchSuggestionsEl"></div>
     </div>
     <div class="header-actions">
-      <button class="header-action-btn" onclick="toggleCart()" aria-label="Inquiry list">
+      <button class="header-action-btn" onclick="toggleCart()" aria-label="Cart">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
-        <span class="btn-label">Inquiry</span>
+        <span class="btn-label">Cart</span>
         <span class="cart-badge" id="cartBadgeEl">0</span>
       </button>
       <div class="header-divider"></div>
@@ -152,7 +152,14 @@
           <div class="mega-col"><h4>Calibers</h4><a href="shop.html?cat=ammunition&caliber=9mm">9mm</a><a href="shop.html?cat=ammunition&caliber=45acp">.45 ACP</a><a href="shop.html?cat=ammunition&caliber=223">5.56/.223</a><a href="shop.html?cat=ammunition&caliber=308">.308</a><a href="shop.html?cat=ammunition&caliber=22lr">.22 LR</a><a href="shop.html?cat=ammunition" class="view-all">View All &rarr;</a></div>
         </div>
       </li>
-      <li class="nav-item"><a class="nav-link" href="shop.html?cat=optics">Optics</a></li>
+      <li class="nav-item">
+        <a class="nav-link" href="shop.html?cat=optics">Optics <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></a>
+        <div class="mega-menu">
+          <div class="mega-col"><h4>By Type</h4><a href="shop.html?cat=optics&type=red-dots">Red Dots &amp; Reflex</a><a href="shop.html?cat=optics&type=scopes">Rifle Scopes</a><a href="shop.html?cat=optics&type=lpvo">LPVOs</a><a href="shop.html?cat=optics&type=night-vision">Night Vision</a><a href="shop.html?cat=optics" class="view-all">View All &rarr;</a></div>
+          <div class="mega-col"><h4>Top Brands</h4><a href="shop.html?cat=optics&brand=vortex">Vortex</a><a href="shop.html?cat=optics&brand=leupold">Leupold</a><a href="shop.html?cat=optics&brand=trijicon">Trijicon</a><a href="shop.html?cat=optics&brand=eotech">EOTech</a><a href="shop.html?cat=optics&brand=nightforce">Nightforce</a></div>
+          <div class="mega-col"><h4>Mounts &amp; More</h4><a href="shop.html?cat=optics&type=mounts">Mounts &amp; Rings</a><a href="shop.html?cat=optics&type=magnifiers">Magnifiers</a><a href="shop.html?cat=optics&type=flip-covers">Flip-Up Covers</a><a href="shop.html?cat=optics&type=lights">Lights &amp; Lasers</a></div>
+        </div>
+      </li>
       <li class="nav-item">
         <a class="nav-link" href="shop.html?cat=accessories">Accessories <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></a>
         <div class="mega-menu">

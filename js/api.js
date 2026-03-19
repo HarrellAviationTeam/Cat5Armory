@@ -133,7 +133,7 @@ function buildProductCard(p) {
       </div>
       <div class="product-card-footer">
         <button class="btn btn-primary btn-full btn-sm" onclick="Cart.add(${JSON.stringify(JSON.stringify(p)).slice(1,-1)})" ${!p.inStock ? 'disabled style="opacity:.5;cursor:not-allowed"' : ''}>
-          ${p.inStock ? 'Add to Inquiry' : 'Out of Stock'}
+          ${p.inStock ? 'Add to Cart' : 'Out of Stock'}
         </button>
       </div>
     </div>
