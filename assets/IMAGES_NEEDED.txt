@@ -1,0 +1,86 @@
+CAT-5 ARMORY - IMAGE INFORMATION
+
+✅ PLACEHOLDER IMAGES ADDED!
+
+The website now uses placeholder images from Unsplash and placeholder.com.
+You can deploy immediately and replace these images later with your own.
+
+OPTIONAL: Replace placeholder images with your own:
+
+1. logo.png
+   - Cat-5 Armory logo
+   - Recommended size: 300x100px (or maintain aspect ratio)
+   - Format: PNG with transparent background
+   - Source: https://s3.amazonaws.com/mgm-content/sites/armslist/uploads/accounts/13128/hyh4e1nj.jpg
+   - Convert to PNG and save here
+
+2. hero-bg.jpg
+   - Hero section background image
+   - Recommended size: 1920x1080px
+   - Format: JPG
+   - Suggestion: Professional firearms/tactical themed image
+
+3. storefront.jpg
+   - About section image
+   - Recommended size: 800x600px
+   - Format: JPG
+   - Suggestion: Business location or professional firearms image
+
+4. handguns.jpg
+   - Category image for handguns
+   - Recommended size: 600x400px
+   - Format: JPG
+
+5. rifles.jpg
+   - Category image for rifles
+   - Recommended size: 600x400px
+   - Format: JPG
+
+6. shotguns.jpg
+   - Category image for shotguns
+   - Recommended size: 600x400px
+   - Format: JPG
+
+7. ammunition.jpg
+   - Category image for ammunition
+   - Recommended size: 600x400px
+   - Format: JPG
+
+8. accessories.jpg
+   - Category image for accessories
+   - Recommended size: 600x400px
+   - Format: JPG
+
+9. optics.jpg
+   - Category image for optics
+   - Recommended size: 600x400px
+   - Format: JPG
+
+10. custom-build.jpg
+    - Custom build section image
+    - Recommended size: 800x600px
+    - Format: JPG
+
+IMAGE SOURCES:
+- Use your own professional photos
+- Free stock photos: Unsplash.com, Pexels.com
+- Paid stock photos: Shutterstock.com, iStock.com
+
+IMPORTANT NOTES:
+- Ensure all images are properly licensed for commercial use
+- Optimize images for web (compress to reduce file size)
+- Use appropriate, professional imagery for a firearms business
+- All images should be high quality and professional
+
+CURRENT PLACEHOLDER IMAGES:
+- Logo: Placeholder.com text logo (black/red)
+- Hero Background: Unsplash tactical/firearms image
+- All Category Images: Unsplash firearms images with variations
+- Storefront: Unsplash tactical equipment image
+- Custom Build: Unsplash firearms image
+
+TO REPLACE WITH YOUR OWN IMAGES:
+Simply save your images with the same filenames in this folder, and update the HTML files to point to "assets/filename.jpg" instead of the Unsplash URLs.
+
+Once you replace all images with your own, you can delete this file.
+

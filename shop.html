@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Shop firearms, ammunition, optics, and accessories at Cat-5 Armory LLC in Naples, FL.">
+  <title>Shop | Cat-5 Armory LLC</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- AGE VERIFICATION -->
+<div class="age-overlay" id="ageOverlay">
+  <div class="age-modal">
+    <div class="age-icon">&#x1F6AB;</div>
+    <h2>Age Verification Required</h2>
+    <p>You must be <strong style="color:#fff">21 years or older</strong> to enter this site.</p>
+    <div class="age-btns">
+      <button class="btn btn-primary btn-lg" onclick="verifyAge(true)">I Am 21 or Older</button>
+      <button class="btn btn-light" onclick="verifyAge(false)">Under 21</button>
+    </div>
+    <div class="age-warning"><p>&#x26A0; 21+ for handguns &middot; 18+ for long guns &amp; ammo &middot; Federal Law</p></div>
+  </div>
+</div>
+
+<div class="mobile-overlay" id="mobileOverlay" onclick="closeMobileDrawer()"></div>
+<nav class="mobile-drawer" id="mobileDrawer">
+  <div class="drawer-header"><span>Cat-5 Armory</span><button class="drawer-close" onclick="closeMobileDrawer()">&#x2715;</button></div>
+  <div class="drawer-nav-item"><a class="drawer-nav-link" href="index.html">Home</a></div>
+  <div class="drawer-nav-item"><a class="drawer-nav-link active" href="shop.html">Shop</a></div>
+  <div class="drawer-nav-item"><a class="drawer-nav-link" href="shop.html?cat=handguns">Handguns</a></div>
+  <div class="drawer-nav-item"><a class="drawer-nav-link" href="shop.html?cat=rifles">Rifles</a></div>
+  <div class="drawer-nav-item"><a class="drawer-nav-link" href="shop.html?cat=shotguns">Shotguns</a></div>
+  <div class="drawer-nav-item"><a class="drawer-nav-link" href="shop.html?cat=ammunition">Ammunition</a></div>
+  <div class="drawer-nav-item"><a class="drawer-nav-link" href="shop.html?cat=optics">Optics</a></div>
+  <div class="drawer-nav-item"><a class="drawer-nav-link" href="shop.html?cat=accessories">Accessories</a></div>
+  <div class="drawer-nav-item"><a class="drawer-nav-link deals" href="shop.html?deals=1">&#x1F525; Deals</a></div>
+  <div class="drawer-nav-item"><a class="drawer-nav-link" href="about.html">About</a></div>
+  <div class="drawer-nav-item"><a class="drawer-nav-link" href="contact.html">Contact</a></div>
+</nav>
+
+<div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
+<div class="cart-sidebar" id="cartSidebar">
+  <div class="cart-header"><h3>Inquiry List</h3><button class="cart-close" onclick="toggleCart()">&#x2715;</button></div>
+  <div class="cart-items-list" id="cartItemsEl"></div>
+  <div class="cart-footer">
+    <div class="cart-row"><span>Items:</span><strong id="cartCountEl">0</strong></div>
+    <div class="cart-row total"><span>Est. Total:</span><strong id="cartTotalEl">$0.00</strong></div>
+    <a href="contact.html" class="btn btn-primary btn-full">Request Quote</a>
+    <p class="cart-disclaimer">Prices are estimates. Final pricing confirmed at appointment. Background check &amp; valid ID required.</p>
+  </div>
+</div>
+
+<div class="top-bar">&#x1F4DE; By Appointment Only &nbsp;|&nbsp; <a href="tel:239-784-5451">239-784-5451</a> &nbsp;|&nbsp; Licensed FFL Dealer &ndash; Naples, FL</div>
+
+<header class="site-header">
+  <div class="header-main">
+    <button class="mobile-menu-btn" onclick="openMobileDrawer()"><span></span><span></span><span></span></button>
+    <a href="index.html" class="header-logo">
+      <img src="assets/logo.png.jpg" alt="Cat-5 Armory Logo">
+      <div class="logo-text-wrap">
+        <div class="logo-text"><span>CAT-5</span> ARMORY</div>
+        <span class="logo-sub">Licensed FFL &middot; Naples, FL</span>
+      </div>
+    </a>
+    <div class="header-search">
+      <form onsubmit="headerSearch(event)">
+        <input type="text" id="headerSearchInput" placeholder="Search firearms, ammo, optics..." autocomplete="off">
+        <button type="submit" class="search-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></button>
+      </form>
+      <div class="search-suggestions" id="searchSuggestionsEl"></div>
+    </div>
+    <div class="header-actions">
+      <button class="header-action-btn" onclick="toggleCart()">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+        <span class="btn-label">Inquiry</span>
+        <span class="cart-badge" id="cartBadgeEl">0</span>
+      </button>
+      <div class="header-divider"></div>
+      <div class="header-phone"><strong>Call Us</strong><a href="tel:239-784-5451">239-784-5451</a></div>
+    </div>
+  </div>
+  <nav class="site-nav">
+    <ul class="nav-list">
+      <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+      <li class="nav-item"><a class="nav-link" href="shop.html?cat=handguns">Handguns</a></li>
+      <li class="nav-item"><a class="nav-link" href="shop.html?cat=rifles">Rifles</a></li>
+      <li class="nav-item"><a class="nav-link" href="shop.html?cat=shotguns">Shotguns</a></li>
+      <li class="nav-item"><a class="nav-link" href="shop.html?cat=ammunition">Ammunition</a></li>
+      <li class="nav-item"><a class="nav-link" href="shop.html?cat=optics">Optics</a></li>
+      <li class="nav-item"><a class="nav-link" href="shop.html?cat=accessories">Accessories</a></li>
+      <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+      <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+      <li class="nav-item" style="margin-left:auto"><a class="nav-link deals-link" href="shop.html?deals=1">&#x1F525; Deals</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <div class="page-hero" style="padding:36px 0">
+    <div class="container">
+      <h1 id="shopPageTitle">Shop All Products</h1>
+      <p id="shopPageSubtitle">Browse our full inventory of firearms, ammo, and accessories</p>
+    </div>
+  </div>
+
+  <div style="padding:24px 0">
+    <div class="container">
+      <!-- BREADCRUMB -->
+      <div class="breadcrumb">
+        <a href="index.html">Home</a>
+        <span class="sep">/</span>
+        <a href="shop.html">Shop</a>
+        <span class="sep" id="breadcrumbSep" style="display:none">/</span>
+        <span class="current" id="breadcrumbCurrent"></span>
+      </div>
+
+      <div class="shop-layout">
+        <!-- FILTER SIDEBAR -->
+        <aside class="filter-sidebar" id="filterSidebar">
+          <div class="sidebar-header">
+            <h3>Filter</h3>
+            <button class="clear-filters" onclick="clearAllFilters()">Clear All</button>
+          </div>
+
+          <div class="filter-group open" id="fg-category">
+            <div class="filter-group-header" onclick="this.parentElement.classList.toggle('open')">
+              Category
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+            <div class="filter-group-body">
+              <label class="filter-opt"><input type="radio" name="cat" value="" onchange="applyFilter()"> <label>All Products</label></label>
+              <label class="filter-opt"><input type="radio" name="cat" value="handguns" onchange="applyFilter()"> <label>Handguns</label></label>
+              <label class="filter-opt"><input type="radio" name="cat" value="rifles" onchange="applyFilter()"> <label>Rifles</label></label>
+              <label class="filter-opt"><input type="radio" name="cat" value="shotguns" onchange="applyFilter()"> <label>Shotguns</label></label>
+              <label class="filter-opt"><input type="radio" name="cat" value="ammunition" onchange="applyFilter()"> <label>Ammunition</label></label>
+              <label class="filter-opt"><input type="radio" name="cat" value="optics" onchange="applyFilter()"> <label>Optics</label></label>
+              <label class="filter-opt"><input type="radio" name="cat" value="accessories" onchange="applyFilter()"> <label>Accessories</label></label>
+              <label class="filter-opt"><input type="radio" name="cat" value="magazines" onchange="applyFilter()"> <label>Magazines</label></label>
+            </div>
+          </div>
+
+          <div class="filter-group open" id="fg-brand">
+            <div class="filter-group-header" onclick="this.parentElement.classList.toggle('open')">
+              Brand
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+            <div class="filter-group-body">
+              <div class="filter-search-box"><input type="text" placeholder="Search brands..." id="brandSearch" oninput="filterBrandList()"></div>
+              <div id="brandList">
+                <label class="filter-opt"><input type="checkbox" name="brand" value="Glock" onchange="applyFilter()"> <label>Glock</label></label>
+                <label class="filter-opt"><input type="checkbox" name="brand" value="Sig Sauer" onchange="applyFilter()"> <label>Sig Sauer</label></label>
+                <label class="filter-opt"><input type="checkbox" name="brand" value="Smith & Wesson" onchange="applyFilter()"> <label>Smith &amp; Wesson</label></label>
+                <label class="filter-opt"><input type="checkbox" name="brand" value="Springfield Armory" onchange="applyFilter()"> <label>Springfield Armory</label></label>
+                <label class="filter-opt"><input type="checkbox" name="brand" value="Ruger" onchange="applyFilter()"> <label>Ruger</label></label>
+                <label class="filter-opt"><input type="checkbox" name="brand" value="Daniel Defense" onchange="applyFilter()"> <label>Daniel Defense</label></label>
+                <label class="filter-opt"><input type="checkbox" name="brand" value="Mossberg" onchange="applyFilter()"> <label>Mossberg</label></label>
+                <label class="filter-opt"><input type="checkbox" name="brand" value="Remington" onchange="applyFilter()"> <label>Remington</label></label>
+                <label class="filter-opt"><input type="checkbox" name="brand" value="Federal" onchange="applyFilter()"> <label>Federal</label></label>
+                <label class="filter-opt"><input type="checkbox" name="brand" value="Hornady" onchange="applyFilter()"> <label>Hornady</label></label>
+                <label class="filter-opt"><input type="checkbox" name="brand" value="EOTech" onchange="applyFilter()"> <label>EOTech</label></label>
+                <label class="filter-opt"><input type="checkbox" name="brand" value="Leupold" onchange="applyFilter()"> <label>Leupold</label></label>
+                <label class="filter-opt"><input type="checkbox" name="brand" value="Magpul" onchange="applyFilter()"> <label>Magpul</label></label>
+                <label class="filter-opt"><input type="checkbox" name="brand" value="Surefire" onchange="applyFilter()"> <label>Surefire</label></label>
+              </div>
+            </div>
+          </div>
+
+          <div class="filter-group open" id="fg-caliber">
+            <div class="filter-group-header" onclick="this.parentElement.classList.toggle('open')">
+              Caliber / Gauge
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+            <div class="filter-group-body">
+              <label class="filter-opt"><input type="checkbox" name="caliber" value="9mm" onchange="applyFilter()"> <label>9mm</label></label>
+              <label class="filter-opt"><input type="checkbox" name="caliber" value=".45 ACP" onchange="applyFilter()"> <label>.45 ACP</label></label>
+              <label class="filter-opt"><input type="checkbox" name="caliber" value=".40 S&W" onchange="applyFilter()"> <label>.40 S&amp;W</label></label>
+              <label class="filter-opt"><input type="checkbox" name="caliber" value=".380 ACP" onchange="applyFilter()"> <label>.380 ACP</label></label>
+              <label class="filter-opt"><input type="checkbox" name="caliber" value=".357 Mag" onchange="applyFilter()"> <label>.357 Mag</label></label>
+              <label class="filter-opt"><input type="checkbox" name="caliber" value="5.56/.223" onchange="applyFilter()"> <label>5.56/.223</label></label>
+              <label class="filter-opt"><input type="checkbox" name="caliber" value=".308" onchange="applyFilter()"> <label>.308 Win</label></label>
+              <label class="filter-opt"><input type="checkbox" name="caliber" value="300 Blackout" onchange="applyFilter()"> <label>300 Blackout</label></label>
+              <label class="filter-opt"><input type="checkbox" name="caliber" value="6.5 Creedmoor" onchange="applyFilter()"> <label>6.5 Creedmoor</label></label>
+              <label class="filter-opt"><input type="checkbox" name="caliber" value="12 Gauge" onchange="applyFilter()"> <label>12 Gauge</label></label>
+              <label class="filter-opt"><input type="checkbox" name="caliber" value=".22 LR" onchange="applyFilter()"> <label>.22 LR</label></label>
+            </div>
+          </div>
+
+          <div class="filter-group" id="fg-price">
+            <div class="filter-group-header" onclick="this.parentElement.classList.toggle('open')">
+              Price Range
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+            <div class="filter-group-body">
+              <div class="price-inputs">
+                <input type="number" id="priceMin" placeholder="Min $" min="0" onchange="applyFilter()">
+                <span>–</span>
+                <input type="number" id="priceMax" placeholder="Max $" min="0" onchange="applyFilter()">
+              </div>
+            </div>
+          </div>
+
+          <div class="filter-group" id="fg-stock">
+            <div class="filter-group-header" onclick="this.parentElement.classList.toggle('open')">
+              Availability
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+            <div class="filter-group-body">
+              <label class="filter-opt"><input type="checkbox" id="inStockOnly" onchange="applyFilter()"> <label>In Stock Only</label></label>
+              <label class="filter-opt"><input type="checkbox" id="dealsOnly" onchange="applyFilter()"> <label>On Sale Only</label></label>
+            </div>
+          </div>
+        </aside>
+
+        <!-- CATALOG MAIN -->
+        <div class="catalog-main">
+          <div class="catalog-bar">
+            <div class="catalog-count">Showing <strong id="productCount">0</strong> products</div>
+            <div class="catalog-controls">
+              <button class="btn btn-light btn-sm mobile-filter-btn" onclick="toggleMobileFilter()">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="14" y2="12"/><line x1="4" y1="18" x2="10" y2="18"/></svg>
+                Filter
+              </button>
+              <select class="sort-select" id="sortSelect" onchange="applyFilter()">
+                <option value="">Sort: Featured</option>
+                <option value="price-asc">Price: Low to High</option>
+                <option value="price-desc">Price: High to Low</option>
+                <option value="name">Name: A-Z</option>
+              </select>
+              <div class="view-toggle">
+                <button class="view-btn active" id="gridViewBtn" onclick="setView('grid')" title="Grid view">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+                </button>
+                <button class="view-btn" id="listViewBtn" onclick="setView('list')" title="List view">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Active filter chips -->
+          <div class="active-chips" id="activeChips"></div>
+
+          <!-- API status -->
+          <div class="api-status demo" id="shopApiStatus">
+            <span class="api-dot"></span>
+            <span>Demo inventory &mdash; Connect wholesaler API keys to show live stock.</span>
+          </div>
+
+          <!-- Product grid -->
+          <div class="catalog-grid" id="catalogGrid">
+            <div class="skeleton" style="height:320px"></div>
+            <div class="skeleton" style="height:320px"></div>
+            <div class="skeleton" style="height:320px"></div>
+            <div class="skeleton" style="height:320px"></div>
+            <div class="skeleton" style="height:320px"></div>
+            <div class="skeleton" style="height:320px"></div>
+          </div>
+
+          <!-- Pagination -->
+          <div class="catalog-pagination" id="pagination"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo-text"><span>CAT-5</span> ARMORY LLC</div>
+        <p>Licensed FFL dealer serving Naples, Florida. Premium firearms, ammo, and accessories from trusted wholesale partners.</p>
+        <div class="footer-contact-info">
+          <p><strong style="color:#fff">Phone:</strong> <a href="tel:239-784-5451">239-784-5451</a></p>
+          <p><strong style="color:#fff">Location:</strong> Naples, FL</p>
+          <p><strong style="color:#fff">Hours:</strong> By Appointment Only</p>
+        </div>
+      </div>
+      <div class="footer-col"><h4>Shop</h4><ul><li><a href="shop.html?cat=handguns">Handguns</a></li><li><a href="shop.html?cat=rifles">Rifles</a></li><li><a href="shop.html?cat=shotguns">Shotguns</a></li><li><a href="shop.html?cat=ammunition">Ammunition</a></li><li><a href="shop.html?cat=optics">Optics</a></li><li><a href="shop.html?cat=accessories">Accessories</a></li></ul></div>
+      <div class="footer-col"><h4>Company</h4><ul><li><a href="about.html">About Us</a></li><li><a href="news.html">News</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+      <div class="footer-col"><h4>Legal</h4><ul><li><a href="#">Privacy Policy</a></li><li><a href="#">Terms</a></li></ul><div style="margin-top:14px"><span class="ffl-badge">&#x2713; Licensed FFL Dealer</span></div></div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Cat-5 Armory LLC &middot; Naples, FL</span>
+      <span style="font-size:.73rem">All sales subject to federal, state &amp; local laws. Background check required.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/api.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/main.js"></script>
+<script>
+// ===== SHOP PAGE LOGIC =====
+const PAGE_SIZE = 12;
+let allProducts = [];
+let currentPage = 1;
+let viewMode = 'grid';
+
+document.addEventListener('DOMContentLoaded', async () => {
+  const params = getQueryParams();
+  setupPageFromParams(params);
+  await loadProducts(params);
+});
+
+function setupPageFromParams(params) {
+  const cat = params.cat || params.category;
+  const catNames = { handguns:'Handguns', rifles:'Rifles', shotguns:'Shotguns', ammunition:'Ammunition', optics:'Optics', accessories:'Accessories', magazines:'Magazines' };
+  if (cat && catNames[cat]) {
+    document.getElementById('shopPageTitle').textContent = catNames[cat];
+    document.getElementById('shopPageSubtitle').textContent = `Browse our ${catNames[cat].toLowerCase()} inventory`;
+    document.getElementById('breadcrumbSep').style.display = '';
+    document.getElementById('breadcrumbCurrent').textContent = catNames[cat];
+    // Check matching radio
+    const radio = document.querySelector(`input[name="cat"][value="${cat}"]`);
+    if (radio) radio.checked = true;
+  }
+  if (params.deals === '1') {
+    document.getElementById('dealsOnly').checked = true;
+    document.getElementById('shopPageTitle').textContent = 'Current Deals';
+  }
+  if (params.q) {
+    document.getElementById('headerSearchInput').value = params.q;
+    document.getElementById('shopPageTitle').textContent = `Results for "${params.q}"`;
+    document.getElementById('shopPageSubtitle').textContent = '';
+  }
+}
+
+async function loadProducts(params) {
+  const grid = document.getElementById('catalogGrid');
+  grid.innerHTML = Array(6).fill('<div class="skeleton" style="height:320px"></div>').join('');
+
+  const apiParams = {};
+  if (params.cat) apiParams.category = params.cat;
+  if (params.brand) apiParams.brand = params.brand;
+  if (params.q) apiParams.search = params.q;
+  if (params.deals === '1') apiParams.deals = true;
+
+  allProducts = await API.getProducts(apiParams);
+  renderCatalog();
+}
+
+function applyFilter() {
+  currentPage = 1;
+  const cat = document.querySelector('input[name="cat"]:checked')?.value;
+  const brands = Array.from(document.querySelectorAll('input[name="brand"]:checked')).map(i => i.value);
+  const calibers = Array.from(document.querySelectorAll('input[name="caliber"]:checked')).map(i => i.value);
+  const minPrice = parseFloat(document.getElementById('priceMin')?.value) || 0;
+  const maxPrice = parseFloat(document.getElementById('priceMax')?.value) || Infinity;
+  const inStockOnly = document.getElementById('inStockOnly')?.checked;
+  const dealsOnly = document.getElementById('dealsOnly')?.checked;
+  const sort = document.getElementById('sortSelect')?.value;
+
+  let filtered = [...API.DEMO_PRODUCTS];
+  if (cat) filtered = filtered.filter(p => p.category === cat);
+  if (brands.length) filtered = filtered.filter(p => brands.some(b => p.brand.toLowerCase().includes(b.toLowerCase())));
+  if (calibers.length) filtered = filtered.filter(p => calibers.some(c => p.caliber && p.caliber.toLowerCase().includes(c.toLowerCase())));
+  if (minPrice > 0) filtered = filtered.filter(p => (p.salePrice || p.price) >= minPrice);
+  if (maxPrice < Infinity) filtered = filtered.filter(p => (p.salePrice || p.price) <= maxPrice);
+  if (inStockOnly) filtered = filtered.filter(p => p.inStock);
+  if (dealsOnly) filtered = filtered.filter(p => p.salePrice);
+  if (sort === 'price-asc') filtered.sort((a,b) => (a.salePrice||a.price) - (b.salePrice||b.price));
+  if (sort === 'price-desc') filtered.sort((a,b) => (b.salePrice||b.price) - (a.salePrice||a.price));
+  if (sort === 'name') filtered.sort((a,b) => a.name.localeCompare(b.name));
+
+  allProducts = filtered;
+  renderCatalog();
+  updateActiveChips(cat, brands, calibers);
+}
+
+function renderCatalog() {
+  const grid = document.getElementById('catalogGrid');
+  const countEl = document.getElementById('productCount');
+  const start = (currentPage - 1) * PAGE_SIZE;
+  const page = allProducts.slice(start, start + PAGE_SIZE);
+
+  countEl.textContent = allProducts.length;
+  grid.className = viewMode === 'list' ? 'catalog-grid catalog-list' : 'catalog-grid';
+
+  if (page.length === 0) {
+    grid.innerHTML = '<p style="grid-column:1/-1;text-align:center;padding:40px;color:#888">No products found matching your filters.</p>';
+  } else {
+    grid.innerHTML = page.map(p => buildProductCard(p)).join('');
+  }
+  renderPagination();
+}
+
+function renderPagination() {
+  const el = document.getElementById('pagination');
+  const pages = Math.ceil(allProducts.length / PAGE_SIZE);
+  if (pages <= 1) { el.innerHTML = ''; return; }
+  let html = `<button class="page-btn" onclick="goPage(${currentPage-1})" ${currentPage===1?'disabled':''}>&#x2039;</button>`;
+  for (let i = 1; i <= pages; i++) {
+    if (i === 1 || i === pages || Math.abs(i - currentPage) <= 2) {
+      html += `<button class="page-btn ${i===currentPage?'active':''}" onclick="goPage(${i})">${i}</button>`;
+    } else if (Math.abs(i - currentPage) === 3) {
+      html += `<span style="padding:0 4px;color:#888">...</span>`;
+    }
+  }
+  html += `<button class="page-btn" onclick="goPage(${currentPage+1})" ${currentPage===pages?'disabled':''}>&#x203A;</button>`;
+  el.innerHTML = html;
+}
+
+function goPage(n) {
+  const pages = Math.ceil(allProducts.length / PAGE_SIZE);
+  if (n < 1 || n > pages) return;
+  currentPage = n;
+  renderCatalog();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function setView(mode) {
+  viewMode = mode;
+  document.getElementById('gridViewBtn').classList.toggle('active', mode === 'grid');
+  document.getElementById('listViewBtn').classList.toggle('active', mode === 'list');
+  renderCatalog();
+}
+
+function clearAllFilters() {
+  document.querySelectorAll('input[name="cat"]')[0].checked = true;
+  document.querySelectorAll('input[name="brand"]').forEach(i => i.checked = false);
+  document.querySelectorAll('input[name="caliber"]').forEach(i => i.checked = false);
+  document.getElementById('priceMin').value = '';
+  document.getElementById('priceMax').value = '';
+  document.getElementById('inStockOnly').checked = false;
+  document.getElementById('dealsOnly').checked = false;
+  applyFilter();
+}
+
+function updateActiveChips(cat, brands, calibers) {
+  const chips = document.getElementById('activeChips');
+  let html = '';
+  if (cat) html += chip(cat.charAt(0).toUpperCase() + cat.slice(1), `clearCat()`);
+  brands.forEach(b => html += chip(b, `clearBrand('${b}')`));
+  calibers.forEach(c => html += chip(c, `clearCaliber('${c}')`));
+  chips.innerHTML = html;
+}
+
+function chip(label, clearFn) {
+  return `<span class="chip">${label}<button class="chip-remove" onclick="${clearFn}">&#x2715;</button></span>`;
+}
+
+function clearCat() {
+  document.querySelector('input[name="cat"][value=""]').checked = true;
+  applyFilter();
+}
+
+function clearBrand(b) {
+  document.querySelector(`input[name="brand"][value="${b}"]`).checked = false;
+  applyFilter();
+}
+
+function clearCaliber(c) {
+  document.querySelector(`input[name="caliber"][value="${c}"]`).checked = false;
+  applyFilter();
+}
+
+function filterBrandList() {
+  const q = document.getElementById('brandSearch').value.toLowerCase();
+  document.querySelectorAll('#brandList .filter-opt').forEach(opt => {
+    opt.style.display = opt.textContent.toLowerCase().includes(q) ? '' : 'none';
+  });
+}
+
+function toggleMobileFilter() {
+  document.getElementById('filterSidebar').classList.toggle('mobile-open');
+}
+</script>
+</body>
+</html>
