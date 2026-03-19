@@ -202,12 +202,12 @@ h1,h2,h3,h4,h5,h6 { font-family: var(--font-h); font-weight: 700; line-height: 1
 .cat-tiles { padding: 24px 0; }
 .cat-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px; }
 .cat-tile {
-  display: flex; flex-direction: column; align-items: center; gap: 8px;
-  padding: 14px 8px 12px; background: #fff; border-radius: var(--radius);
+  display: flex; flex-direction: column; align-items: center; gap: 10px;
+  padding: 18px 8px 14px; background: #fff; border-radius: var(--radius);
   box-shadow: var(--shadow-sm); cursor: pointer; transition: all var(--transition); color: var(--text-dark);
 }
 .cat-tile:hover { box-shadow: var(--shadow); transform: translateY(-2px); color: var(--red); }
-.cat-tile-img { width: 72px; height: 52px; object-fit: contain; }
+.cat-tile-img { width: 120px; height: 84px; object-fit: cover; border-radius: 4px; }
 .cat-tile span { font-family: var(--font-h); font-size: .88rem; font-weight: 600; text-align: center; text-transform: uppercase; letter-spacing: .3px; line-height: 1.2; }
 
 /* ===== 11. PRODUCT SECTIONS ===== */
