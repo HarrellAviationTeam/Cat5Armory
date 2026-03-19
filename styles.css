@@ -519,6 +519,8 @@ h1,h2,h3,h4,h5,h6 { font-family: var(--font-h); font-weight: 700; line-height: 1
   .site-nav { display: none; }
   .mobile-menu-btn { display: flex; }
   .header-phone { display: none; }
+  .header-main { padding: 10px 14px; gap: 10px; }
+  .header-logo img { height: 42px; }
   .shop-layout { flex-direction: column; }
   .filter-sidebar { width: 100%; position: static; max-height: none; display: none; }
   .filter-sidebar.mobile-open { display: block; }
@@ -529,23 +531,61 @@ h1,h2,h3,h4,h5,h6 { font-family: var(--font-h); font-weight: 700; line-height: 1
   .contact-layout { grid-template-columns: 1fr; }
   .news-grid { grid-template-columns: repeat(2, 1fr); }
   .why-grid { grid-template-columns: 1fr; }
-  .cart-sidebar { width: 100%; max-width: 380px; }
+  .cart-sidebar { width: 100%; max-width: 420px; }
+  /* Fix category tiles — 6 cols too tight on tablets */
+  .cat-grid { grid-template-columns: repeat(4, 1fr); }
+  /* Larger touch targets on tablets */
+  .qty-btn { width: 32px; height: 32px; font-size: 1rem; }
+  .filter-opt input[type=checkbox] { width: 18px; height: 18px; }
+  .drawer-nav-link { padding: 15px 16px; }
+  .drawer-sub a { padding: 12px 28px; }
 }
 @media (max-width: 600px) {
   .cat-grid { grid-template-columns: repeat(3, 1fr); }
   .catalog-grid { grid-template-columns: repeat(2, 1fr); }
-  .hero-title { font-size: 2.2rem; }
-  .hero-slide { min-height: 340px; }
+  .hero-title { font-size: 1.9rem; line-height: 1.15; }
+  .hero-desc { font-size: .9rem; }
+  .hero-slide { min-height: 320px; }
+  .hero-btns { flex-direction: column; align-items: flex-start; gap: 10px; }
+  .hero-btns .btn { width: 100%; justify-content: center; }
   .header-search { display: none; }
+  .header-main { padding: 8px 12px; }
+  .top-bar { font-size: .72rem; padding: 6px 12px; }
   .footer-grid { grid-template-columns: 1fr; }
   .footer-grid > .footer-brand { grid-column: span 1; }
   .news-grid { grid-template-columns: 1fr; }
   .form-grid { grid-template-columns: 1fr; }
   .form-group.full { grid-column: span 1; }
+  /* Touch targets — minimum 44px tap area */
+  .btn { min-height: 44px; padding: 10px 20px; }
+  .btn-sm { min-height: 40px; padding: 9px 16px; }
+  .btn-lg { min-height: 48px; }
+  .product-card-footer .btn { min-height: 44px; font-size: .88rem; }
+  .header-action-btn { padding: 10px 12px; }
+  .header-action-btn svg { width: 24px; height: 24px; }
+  /* Larger checkboxes and qty buttons */
+  .filter-opt input[type=checkbox] { width: 18px; height: 18px; }
+  .qty-btn { width: 36px; height: 36px; font-size: 1rem; }
+  /* Category tile images slightly smaller to keep 3-col layout tidy */
+  .cat-tile-img { width: 90px; height: 64px; }
+  /* Cart full width on phones */
+  .cart-sidebar { max-width: 100%; }
+  /* Detail actions stack better */
+  .detail-actions .btn { min-height: 48px; font-size: 1rem; }
+  /* Product card padding tighten */
+  .product-card-body { padding: 10px 12px 6px; }
 }
 @media (max-width: 400px) {
   .cat-grid { grid-template-columns: repeat(2, 1fr); }
   .catalog-grid { grid-template-columns: 1fr; }
+  .hero-title { font-size: 1.6rem; }
+  .hero-slide { min-height: 290px; }
+  .cat-tile-img { width: 72px; height: 52px; }
+  /* Hide top bar on very small phones to reclaim space */
+  .top-bar { display: none; }
+  /* Logo text smaller */
+  .logo-text-wrap .logo-text { font-size: 1.2rem; }
+  .logo-text-wrap .logo-sub { display: none; }
 }
 
 /* Mobile Nav Drawer */
