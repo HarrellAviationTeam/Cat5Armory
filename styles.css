@@ -293,7 +293,7 @@ h1,h2,h3,h4,h5,h6 { font-family: var(--font-h); font-weight: 700; line-height: 1
 .filter-search-box input:focus { border-color: var(--red); }
 .filter-opt { display: flex; align-items: center; gap: 8px; padding: 5px 0; cursor: pointer; }
 .filter-opt input[type=checkbox] { accent-color: var(--red); width: 14px; height: 14px; flex-shrink: 0; }
-.filter-opt label { font-size: .85rem; cursor: pointer; flex: 1; }
+.filter-opt span { font-size: .85rem; cursor: pointer; flex: 1; }
 .filter-opt .count { font-size: .72rem; color: var(--gray-3); }
 .filter-more { font-size: .8rem; color: var(--red); font-weight: 600; cursor: pointer; margin-top: 4px; }
 .price-inputs { display: flex; gap: 8px; align-items: center; padding: 8px 0; }
